@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './header';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -21,7 +22,8 @@ export default class App extends React.Component {
     return this.state.isLoading ? (
       <h1>Testing connections...</h1>
     ) : (
-      <h1>{this.state.message}</h1>
+      <Header/>
+
     );
   }
 }
