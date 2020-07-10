@@ -27,7 +27,7 @@ export default class ProductList extends React.Component {
   renderProducts() {
     const { products } = this.state;
     const productsList = products.map(product => {
-      return (
+      return (<div key={product.productId} className="col-md-4" style={{ marginBottom: '5px' }}>
         <ProductListItem
           key={product.productId}
           img={product.image}
@@ -36,6 +36,7 @@ export default class ProductList extends React.Component {
           id={product.productId}
           description={product.shortDescription}
           setView={this.props.setView}/>
+      </div>
       );
     });
     return productsList;
@@ -43,7 +44,7 @@ export default class ProductList extends React.Component {
 
   render() {
     return (
-      <div className='d-flex flex-wrap justify-content-around'>
+      <div className='row'>
         {this.renderProducts()}
       </div>
     );
