@@ -24,6 +24,18 @@ export default class ProductList extends React.Component {
       }).catch(err => console.error(err));
   }
 
+  getProducts2() {
+    fetch('/api/products')
+      .then(res => res.json())
+      .then(data => {
+        this.setState(() => {
+          // eslint-disable-next-line no-console
+          console.log(data);
+          return { products: data };
+        });
+      }).catch(err => console.error(err));
+  }
+
   renderProducts() {
     const { products } = this.state;
     const productsList = products.map(product => {
