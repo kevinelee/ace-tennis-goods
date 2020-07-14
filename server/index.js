@@ -44,12 +44,12 @@ app.get('/api/products', (req, res, next) => {
 
 app.get('/api/products/:productId', (req, res, next) => {
   const parameter = [req.params.productId];
-  const sql = `
+  const sqlQuery = `
   select *
   from "products"
   where "productId" = $1`;
 
-  db.query(sql, parameter).then(result => {
+  db.query(sqlQuery, parameter).then(result => {
     const array = result.rows;
     const map = array.map(product => {
       return {
