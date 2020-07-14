@@ -42,6 +42,33 @@ app.get('/api/products', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/products/:productId', (req, res, next) => {
+  const parameter = [req.params.productId];
+  const sql = `
+  select *
+  from "products"
+  where "productId" = $1`;
+
+  db.query(sql, parameter).then(result => {
+    const array = result.rows;
+    const map = array.map(product => {
+      return {
+        productId: product.productId,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        shortDescription: product.shortDescription
+      };
+    });
+
+    if (map.length > 0) {
+      res.send(map);
+    } else {
+      next();
+    }
+  });
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
