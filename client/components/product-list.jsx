@@ -24,6 +24,12 @@ export default class ProductList extends React.Component {
       }).catch(err => console.error(err));
   }
 
+  dummyFunction() {
+    for (let i = 0; i < 4; i++) {
+      return i;
+    }
+  }
+
   renderProducts() {
     const { products } = this.state;
     const productsList = products.map(product => {
