@@ -50,20 +50,8 @@ app.get('/api/products/:productId', (req, res, next) => {
   where "productId" = $1`;
 
   db.query(sqlQuery, parameter).then(result => {
-    const array = result.rows;
-    const map = array.map(product => {
-      return {
-        productId: product.productId,
-        name: product.name,
-        price: product.price,
-        image: product.image,
-        shortDescription: product.shortDescription
-      };
-    });
-
-    if (map.length > 0) {
-      res.send(map);
-    } else {
+    res.send(result.rows[0]);
+    if (!result.rows[0]) {
       next();
     }
   });
