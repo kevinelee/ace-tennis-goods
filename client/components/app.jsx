@@ -38,7 +38,7 @@ export default class App extends React.Component {
       <div>
         <Header />
         <div className="container">
-          <ProductList />
+          <ProductList setView={this.setView}/>
           <ProductDetails/>
         </div>
       </div>
