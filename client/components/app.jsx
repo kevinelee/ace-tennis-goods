@@ -19,7 +19,7 @@ export default class App extends React.Component {
 
   setView(name, params) {
     this.setState(() => {
-      return { view: { name, params } };
+      return { view: { name: name, params: params } };
     });
   }
 

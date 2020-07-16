@@ -6,6 +6,7 @@ export default class ProductList extends React.Component {
     super(props);
     this.state = { products: [] };
     this.getProducts = this.getProducts.bind(this);
+    this.clog = this.clog.bind(this);
   }
 
   componentDidMount() {
@@ -21,38 +22,37 @@ export default class ProductList extends React.Component {
           console.log(data);
           return { products: data };
         });
-      }).catch(err => console.error(err));
+      })
+      .catch(err => console.error(err));
   }
 
-  dummyFunction() {
-    for (let i = 0; i < 4; i++) {
-      return i;
-    }
-  }
+  // onClick={this.props.setView("details", {productId: product.productId})}
 
   renderProducts() {
     const { products } = this.state;
     const productsList = products.map(product => {
-      return (<div key={product.productId} className="col-md-4" style={{ marginBottom: '5px' }}>
-        <ProductListItem
+      return (
+        <div
+          onClick={() => this.props.setView('details', { productId: product.productId })}
           key={product.productId}
-          img={product.image}
-          name={product.name}
-          price={product.price}
-          id={product.productId}
-          description={product.shortDescription}
-          setView={this.props.setView}/>
-      </div>
+          className="col-md-4"
+          style={{ marginBottom: '5px' }}
+        >
+          <ProductListItem
+            key={product.productId}
+            img={product.image}
+            name={product.name}
+            price={product.price}
+            id={product.productId}
+            description={product.shortDescription}
+          />
+        </div>
       );
     });
     return productsList;
   }
 
   render() {
-    return (
-      <div className='row'>
-        {this.renderProducts()}
-      </div>
-    );
+    return <div className="row">{this.renderProducts()}</div>;
   }
 }
