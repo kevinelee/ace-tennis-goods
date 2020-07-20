@@ -6,7 +6,6 @@ export default class ProductList extends React.Component {
     super(props);
     this.state = { products: [] };
     this.getProducts = this.getProducts.bind(this);
-    this.clog = this.clog.bind(this);
   }
 
   componentDidMount() {
@@ -25,8 +24,6 @@ export default class ProductList extends React.Component {
       })
       .catch(err => console.error(err));
   }
-
-  // onClick={this.props.setView("details", {productId: product.productId})}
 
   renderProducts() {
     const { products } = this.state;
