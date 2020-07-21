@@ -19,7 +19,7 @@ export default class App extends React.Component {
 
   setView(name, params) {
     this.setState(() => {
-      return { view: { name: name, params: params } };
+      return { view: { name, params } };
     });
   }
 
@@ -32,14 +32,19 @@ export default class App extends React.Component {
   }
 
   render() {
-    return this.state.isLoading ? (
+    const { view, isLoading } = this.state;
+
+    return isLoading ? (
       <h1>Testing connections...</h1>
     ) : (
       <div>
         <Header />
         <div className="container">
-          <ProductList setView={this.setView}/>
-          <ProductDetails/>
+          {view.name === 'catalog' ? (
+            <ProductList setView={this.setView} />
+          ) : (
+            <ProductDetails params={view.params} setView={this.setView}/>
+          )}
         </div>
       </div>
     );
