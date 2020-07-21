@@ -27,16 +27,13 @@ export default class App extends React.Component {
     fetch('/api/health-check')
       .then(res => res.json())
       .then(data => this.setState({ message: data.message || data.error }))
-      .catch(err => this.setState({ message: err.message }))
-      .finally(() => this.setState({ isLoading: false }));
+      .catch(err => this.setState({ message: err.message }));
   }
 
   render() {
-    const { view, isLoading } = this.state;
+    const { view } = this.state;
 
-    return isLoading ? (
-      <h1>Testing connections...</h1>
-    ) : (
+    return (
       <div>
         <Header />
         <div className="container">
