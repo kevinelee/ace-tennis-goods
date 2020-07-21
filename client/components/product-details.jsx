@@ -40,24 +40,39 @@ export default class ProductDetails extends React.Component {
       );
     }
 
-    return (
-      <Product product={product}/>
-    );
+    return <Product product={product} setView={this.props.setView} />;
   }
 }
 
 const Product = props => {
   const { product } = props || {};
-  const { image, name } = product || {};
+  const { image, name, price, shortDescription, longDescription } =
+    product || {};
 
   return (
-    <div>
-      <button>Back to catalog</button>
+    <div style={{ border: '1px solid black', padding: '30px' }}>
+      <button
+        onClick={() => props.setView('catalog', {})}
+        style={{ border: 'none', backgroundColor: 'white' }}
+      >
+        @ Back to catalog
+      </button>
+      <br/>
       <div>
-        <img src={image} alt={name} />
-        <h3>{name}</h3>
+        <div className="d-flex" style={{}}>
+          <img src={image} alt={name} style={{ width: '40%' }} />
+          <div style={{ marginLeft: '20px', width: '50%' }}>
+            <h3>{name}</h3>
+            <p>${(price / 100).toFixed(2)}</p>
+            <p>{shortDescription}</p>
+          </div>
+          <div></div>
+        </div>
+        <br/>
+        <div>
+          <p>{longDescription}</p>
+        </div>
       </div>
-      <div>LONG DESCRIPTION</div>
     </div>
   );
 };
