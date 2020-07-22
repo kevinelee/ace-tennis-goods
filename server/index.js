@@ -57,6 +57,38 @@ app.get('/api/products/:productId', (req, res, next) => {
   });
 });
 
+app.get('/api/cart', (req, res, next) => {
+  res.send([]);
+});
+
+app.post('/api/cart', (req, res, next) => {
+  // eslint-disable-next-line no-console
+  console.log('body', req.body[2]);
+  if (req.body > 0) {
+    const params = [req.body];
+    // eslint-disable-next-line no-console
+    console.log(params);
+
+    const sql = `select "price"
+    from "products"
+    where "productId" = $1`;
+
+    const sql2 = `insert into "carts" ("cartId", "createdAt")
+    values (default, default)
+    returning "cartId"`;
+
+    db.query(sql, params).then(result => {
+      if (!result) {
+        db.query(sql2).then(result => {
+          res.send(result.rows);
+        });
+      }
+    });
+  } else {
+    res.status(400).send({ error: 'item does not exist' });
+  }
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
