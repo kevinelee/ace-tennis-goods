@@ -62,12 +62,8 @@ app.get('/api/cart', (req, res, next) => {
 });
 
 app.post('/api/cart', (req, res, next) => {
-  // eslint-disable-next-line no-console
-  console.log('body', req.body[2]);
-  if (req.body > 0) {
-    const params = [req.body];
-    // eslint-disable-next-line no-console
-    console.log(params);
+  if (req.body.productId > 0) {
+    const productId = [Number(req.body.productId)];
 
     const sql = `select "price"
     from "products"
@@ -77,15 +73,54 @@ app.post('/api/cart', (req, res, next) => {
     values (default, default)
     returning "cartId"`;
 
-    db.query(sql, params).then(result => {
-      if (!result) {
-        db.query(sql2).then(result => {
-          res.send(result.rows);
+    db.query(sql, productId)
+      .then(result => {
+        if (result.rows < 1) {
+          throw new ClientError();
+        }
+        return db.query(sql2).then(successResult => {
+          return {
+            cartId: successResult.rows[0].cartId,
+            price: result.rows[0].price
+          };
         });
-      }
-    });
+      })
+      .then(data => {
+        req.session.cartId = data.cartId;
+        // eslint-disable-next-line no-console
+        console.log(req.session);
+        const params = [data.cartId, Number(req.body.productId), data.price];
+
+        const sql3 = `insert into "cartItems" ("cartId", "productId", "price")
+        values ($1, $2, $3)
+        returning "cartItemId"`;
+
+        return db.query(sql3, params).then(result => {
+          return result.rows[0];
+        });
+      })
+      .then(result => {
+        // eslint-disable-next-line no-console
+        console.log(result);
+
+        const params = [result.cartItemId];
+
+        const sql4 = `select "c"."cartItemId",
+        "c"."price",
+        "p"."productId",
+        "p"."image",
+        "p"."name",
+        "p"."shortDescription"
+        from "cartItems" as "c"
+        join "products" as "p" using ("productId")
+        where "c"."cartItemId" = $1`;
+
+        db.query(sql4, params).then(result => {
+          return res.status(201).send(result.rows);
+        });
+      });
   } else {
-    res.status(400).send({ error: 'item does not exist' });
+    res.status(400).send({ error: 'error: item does not exist' });
   }
 });
 
