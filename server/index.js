@@ -92,7 +92,7 @@ app.post('/api/cart', (req, res, next) => {
     db.query(sql, productId)
       .then(result => {
         if (result.rows.length < 1) {
-          throw new ClientError();
+          throw new ClientError('no items in cart', 500);
         }
         if (req.session.cartId) {
           return {
