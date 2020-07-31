@@ -11,7 +11,8 @@ export default class App extends React.Component {
       isLoading: true,
       view: {
         name: 'catalog',
-        params: {}
+        params: {},
+        cart: []
       }
     };
     this.setView = this.setView.bind(this);
