@@ -91,7 +91,7 @@ app.post('/api/cart', (req, res, next) => {
 
     db.query(sql, productId)
       .then(result => {
-        if (result.rows < 1) {
+        if (result.rows.length < 1) {
           throw new ClientError();
         }
         if (req.session.cartId) {
