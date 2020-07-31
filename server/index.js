@@ -94,12 +94,19 @@ app.post('/api/cart', (req, res, next) => {
         if (result.rows < 1) {
           throw new ClientError();
         }
-        return db.query(sql2).then(successResult => {
+        if (req.session.cartId) {
           return {
-            cartId: successResult.rows[0].cartId,
+            cartId: req.session.cartId,
             price: result.rows[0].price
           };
-        });
+        } else {
+          return db.query(sql2).then(successResult => {
+            return {
+              cartId: successResult.rows[0].cartId,
+              price: result.rows[0].price
+            };
+          });
+        }
       })
       .then(data => {
         req.session.cartId = data.cartId;
