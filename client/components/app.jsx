@@ -36,6 +36,8 @@ export default class App extends React.Component {
       .then(res => res.json())
       .then(data => this.setState({ message: data.message || data.error }))
       .catch(err => this.setState({ message: err.message }));
+    this.getCartItems();
+
   }
 
   render() {
