@@ -40,7 +40,7 @@ export default class ProductDetails extends React.Component {
       );
     }
 
-    return <Product product={product} setView={this.props.setView} />;
+    return <Product product={product} setView={this.props.setView} addToCart={this.props.addToCart} />;
   }
 }
 
@@ -57,7 +57,7 @@ const Product = props => {
       >
         @ Back to catalog
       </button>
-      <br/>
+      <br />
       <div>
         <div className="d-flex" style={{}}>
           <img src={image} alt={name} style={{ width: '40%' }} />
@@ -65,10 +65,12 @@ const Product = props => {
             <h3>{name}</h3>
             <p>${(price / 100).toFixed(2)}</p>
             <p>{shortDescription}</p>
+            <button onClick={() => props.addToCart(product)}>
+              Add to Cart
+            </button>
           </div>
-          <div></div>
         </div>
-        <br/>
+        <br />
         <div>
           <p>{longDescription}</p>
         </div>
