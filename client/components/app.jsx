@@ -28,8 +28,8 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        // eslint-disable-next-line no-console
-        console.log('post', data);
+        const updatedCart = [...this.state.cart, data];
+        return this.setState({ cart: updatedCart });
       });
   }
 
