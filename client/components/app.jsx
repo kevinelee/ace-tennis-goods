@@ -28,7 +28,8 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        const updatedCart = [...this.state.cart, data];
+        // const updatedCart = [...this.state.cart, data];
+        const updatedCart = this.state.cart.concat(data);
         return this.setState({ cart: updatedCart });
       });
   }
