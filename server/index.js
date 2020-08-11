@@ -149,10 +149,9 @@ app.post('/api/cart', (req, res, next) => {
 
 app.post('/api/orders', (req, res, next) => {
   const { name, creditCard, shippingAddress } = req.body;
+
   if (req.session.cartId) {
-
     if (req.body.name && req.body.creditCard && req.body.shippingAddress) {
-
       const sql = `insert into "orders" ("name", "creditCard", "shippingAddress", "cartId")
                    values ($1, $2, $3, $4)
                    returning *`;
@@ -162,14 +161,10 @@ app.post('/api/orders', (req, res, next) => {
       db.query(sql, params).then(result => {
         delete req.session.cartId;
         return res.status(201).send(result.rows);
-      }
-
-      );
-
+      });
     }
-
   } else {
-    res.status(400).send({ error: 'order does not exist' });
+    res.status(400).send({ error: 'cart does not exist' });
   }
 });
 
