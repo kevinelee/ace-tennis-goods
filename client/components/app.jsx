@@ -2,6 +2,8 @@ import React from 'react';
 import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
+import CartSummary from './cart-summary';
+import Checkout from './checkout';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -11,9 +13,9 @@ export default class App extends React.Component {
       isLoading: true,
       view: {
         name: 'catalog',
-        params: {},
-        cart: []
-      }
+        params: {}
+      },
+      cart: []
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
@@ -28,7 +30,8 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        const updatedCart = [...this.state.cart, data];
+        // const updatedCart = [...this.state.cart, data];
+        const updatedCart = this.state.cart.concat(data);
         return this.setState({ cart: updatedCart });
       });
   }
@@ -49,26 +52,37 @@ export default class App extends React.Component {
     fetch('/api/health-check')
       .then(res => res.json())
       .then(data => this.setState({ message: data.message || data.error }))
+
       .catch(err => this.setState({ message: err.message }));
     this.getCartItems();
   }
 
   render() {
-    const { view } = this.state;
+    const { view, cart } = this.state;
+    const { name } = view || {};
 
     return (
       <div>
-        <Header />
+        <Header cardItemCount={cart && cart.length} setView={this.setView} />
         <div className="container">
-          {view.name === 'catalog' ? (
-            <ProductList setView={this.setView} />
-          ) : (
-            <ProductDetails
-              params={view.params}
-              setView={this.setView}
-              addToCart={this.addToCart}
-            />
-          )}
+          {(() => {
+            switch (name) {
+              case 'catalog':
+                return <ProductList setView={this.setView} />;
+              case 'cart':
+                return <CartSummary cart={cart} setView={this.setView}/>;
+              case 'checkout':
+                return <Checkout />;
+              default:
+                return (
+                  <ProductDetails
+                    params={view.params}
+                    setView={this.setView}
+                    addToCart={this.addToCart}
+                  />
+                );
+            }
+          })()}
         </div>
       </div>
     );
