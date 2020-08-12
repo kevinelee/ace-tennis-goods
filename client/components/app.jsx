@@ -3,7 +3,7 @@ import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
-import Checkout from './checkout';
+import CheckoutForm from './checkout';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -20,6 +20,7 @@ export default class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
   }
 
   addToCart(product) {
@@ -48,6 +49,19 @@ export default class App extends React.Component {
     });
   }
 
+  // order = object with name creditCard and shippingAddress
+  placeOrder(order) {
+    fetch('/api/orders', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(order)
+    }).then(res => {
+      res.json();
+      this.setState({ cart: [] });
+      this.setView('catalog', {});
+    });
+  }
+
   componentDidMount() {
     fetch('/api/health-check')
       .then(res => res.json())
@@ -70,9 +84,9 @@ export default class App extends React.Component {
               case 'catalog':
                 return <ProductList setView={this.setView} />;
               case 'cart':
-                return <CartSummary cart={cart} setView={this.setView}/>;
+                return <CartSummary cart={cart} setView={this.setView} />;
               case 'checkout':
-                return <Checkout />;
+                return <CheckoutForm placeOrder={this.placeOrder}/>;
               default:
                 return (
                   <ProductDetails
