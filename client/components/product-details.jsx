@@ -40,7 +40,13 @@ export default class ProductDetails extends React.Component {
       );
     }
 
-    return <Product product={product} setView={this.props.setView} addToCart={this.props.addToCart} />;
+    return (
+      <Product
+        product={product}
+        setView={this.props.setView}
+        addToCart={this.props.addToCart}
+      />
+    );
   }
 }
 
@@ -55,7 +61,7 @@ const Product = props => {
         onClick={() => props.setView('catalog', {})}
         style={{ border: 'none', backgroundColor: 'white' }}
       >
-        @ Back to catalog
+        &lt; Back to Catalog
       </button>
       <br />
       <div>
@@ -65,8 +71,11 @@ const Product = props => {
             <h3>{name}</h3>
             <p>${(price / 100).toFixed(2)}</p>
             <p>{shortDescription}</p>
-            <button onClick={() => props.addToCart(product)}>
-              Add to Cart
+            <button
+              onClick={() => props.addToCart(product)}
+              style={{ width: '100%', height: '50px', backgroundColor: 'red', color: 'white', fontWeight: '500' }}
+            >
+              ADD TO CART
             </button>
           </div>
         </div>

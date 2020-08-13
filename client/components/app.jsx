@@ -37,6 +37,10 @@ export default class App extends React.Component {
       });
   }
 
+  removeFromCart(product) {
+    return null;
+  }
+
   getCartItems() {
     fetch('/api/cart')
       .then(res => res.json())
@@ -78,6 +82,9 @@ export default class App extends React.Component {
     return (
       <div>
         <Header cardItemCount={cart && cart.length} setView={this.setView} />
+
+        <br/>
+
         <div className="container">
           {(() => {
             switch (name) {
