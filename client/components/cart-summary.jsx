@@ -12,7 +12,13 @@ const CartSummary = props => {
     return item.price;
   });
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
-  const total = priceMap.reduce(reducer);
+
+  const total = 0;
+
+  if (priceMap.length > 0) {
+    // eslint-disable-next-line
+    const total = priceMap.reduce(reducer);
+  }
 
   return (
     <div>
@@ -33,6 +39,7 @@ const CartSummary = props => {
         )}
       </div>
       <div>Total Price: ${total * 0.01}</div>
+      <button onClick={() => props.setView('checkout', {})}>Checkout</button>
     </div>
   );
 };
