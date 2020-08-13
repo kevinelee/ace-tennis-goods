@@ -13,11 +13,10 @@ const CartSummary = props => {
   });
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-  const total = 0;
+  let total = 0;
 
   if (priceMap.length > 0) {
-    // eslint-disable-next-line
-    const total = priceMap.reduce(reducer);
+    total = priceMap.reduce(reducer);
   }
 
   return (
@@ -35,11 +34,11 @@ const CartSummary = props => {
             return <CartSummaryItem key={item.cartItemId} cartItem={item} />;
           })
         ) : (
-          <p>No items in cart</p>
+          <p>No items in cart!</p>
         )}
       </div>
       <div>Total Price: ${total * 0.01}</div>
-      <button onClick={() => props.setView('checkout', {})}>Checkout</button>
+      <button onClick={total > 0 ? () => props.setView('checkout', {}) : null}>Checkout</button>
     </div>
   );
 };

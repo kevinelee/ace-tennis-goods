@@ -1,9 +1,10 @@
 import React from 'react';
+// import {} from '../../server/public/images/ace'
 
 export default class Header extends React.Component {
   render() {
     return (
-      <div style={{ backgroundColor: '#343A40', color: 'white' }}>
+      <div style={{ backgroundColor: 'red', color: 'white' }}>
         <div
           style={{
             display: 'flex',
@@ -13,11 +14,15 @@ export default class Header extends React.Component {
             width: '95%'
           }}
         >
-          <h1 style={{ backgroundColor: '#343A40', color: 'white' }}>
-            $ Wicked Sales
+          <h1
+            onClick={() => this.props.setView('catalog', {})}
+            style={{ backgroundColor: 'red', color: 'white' }}
+          >
+            Ace Tennis Goods
           </h1>
+          {/* <img src="../../server/public/images/ace-tennis-goods-banner.png" alt="banner"/> */}
           <h4 onClick={() => this.props.setView('cart', {})}>
-            cartIcon: {this.props.cardItemCount}
+            Cart: {this.props.cardItemCount} Item(s)
           </h4>
         </div>
       </div>
