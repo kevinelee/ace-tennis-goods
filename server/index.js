@@ -151,10 +151,11 @@ app.post('/api/orders', (req, res, next) => {
   const { name, creditCard, shippingAddress } = req.body;
 
   // eslint-disable-next-line
-  console.log(req.body);
+  console.log("reqbody", req.body);
 
   if (req.session.cartId) {
     if (req.body.name && req.body.creditCard && req.body.shippingAddress) {
+
       const sql = `insert into "orders" ("name", "creditCard", "shippingAddress", "cartId")
                    values ($1, $2, $3, $4)
                    returning *`;
