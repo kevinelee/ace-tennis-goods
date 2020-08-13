@@ -16,9 +16,9 @@ export default class Header extends React.Component {
         >
           <h1
             onClick={() => this.props.setView('catalog', {})}
-            style={{ backgroundColor: 'red', color: 'white' }}
+            style={{ backgroundColor: 'red', color: 'white', fontStyle: 'italic' }}
           >
-            Ace Tennis Goods
+            ACE TENNIS GOODS
           </h1>
           {/* <img src="../../server/public/images/ace-tennis-goods-banner.png" alt="banner"/> */}
           <h4 onClick={() => this.props.setView('cart', {})}>

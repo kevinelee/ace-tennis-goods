@@ -61,7 +61,7 @@ const Product = props => {
         onClick={() => props.setView('catalog', {})}
         style={{ border: 'none', backgroundColor: 'white' }}
       >
-        @ Back to catalog
+        &lt; Back to Catalog
       </button>
       <br />
       <div>

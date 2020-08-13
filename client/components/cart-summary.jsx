@@ -26,7 +26,7 @@ const CartSummary = props => {
           props.setView('catalog');
         }}
       >
-        @Back to Catalog
+        &lt; Back to Catalog
       </button>
       <div>
         {cart && cart.length > 0 ? (
