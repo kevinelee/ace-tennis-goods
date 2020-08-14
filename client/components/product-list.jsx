@@ -32,7 +32,7 @@ export default class ProductList extends React.Component {
         <div
           onClick={() => this.props.setView('details', { productId: product.productId })}
           key={product.productId}
-          className="col-md-4"
+          className="col-md-4 fade-in"
           style={{ marginBottom: '5px' }}
         >
           <ProductListItem

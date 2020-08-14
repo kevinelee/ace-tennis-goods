@@ -40,13 +40,13 @@ export default class CheckoutForm extends React.Component {
 
     return (
       <div>
-        <p>Checkout</p>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="name">
+        <h1>Checkout</h1>
+        <form onSubmit={this.handleSubmit} style={{ display: 'flex', flexDirection: 'column', width: '80%' }}>
+          <label htmlFor="name">Name:
             <input type="text" value={name} onChange={this.handleNameChange} required/>
           </label>
 
-          <label htmlFor="credit-card">
+          <label htmlFor="credit-card">Credit Card:
             <input
               type="text"
               value={creditCard}
@@ -55,7 +55,7 @@ export default class CheckoutForm extends React.Component {
             />
           </label>
 
-          <label htmlFor="address">
+          <label htmlFor="address">Address:
             <input
               type="textarea"
               value={address}

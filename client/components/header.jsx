@@ -21,7 +21,9 @@ export default class Header extends React.Component {
             ACE TENNIS GOODS
           </h1>
           {/* <img src="../../server/public/images/ace-tennis-goods-banner.png" alt="banner"/> */}
-          <h4 onClick={() => this.props.setView('cart', {})}>
+          <h4
+            onClick={() => this.props.setView('cart', {})}
+          >
             Cart: {this.props.cardItemCount} Item(s)
           </h4>
         </div>

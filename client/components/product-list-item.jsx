@@ -4,7 +4,7 @@ export default class ProductListItem extends React.Component {
 
   render(props) {
     return (
-      <div className="card" style={{ width: '18rem' }}>
+      <div className="card product-image" style={{ width: '18rem' }}>
         <img src={this.props.img} className="card-img-top" alt="..." style={{ objectFit: 'contain', height: '10rem' }} />
         <div className="card-body">
           <h5 className="card-title">{this.props.name}</h5>
