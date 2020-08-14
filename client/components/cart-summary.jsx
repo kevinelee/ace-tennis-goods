@@ -20,11 +20,12 @@ const CartSummary = props => {
   }
 
   return (
-    <div>
+    <div className="fade-in">
       <button
         onClick={() => {
           props.setView('catalog');
         }}
+        style={{ border: 'none', backgroundColor: 'white', padding: '5px' }}
       >
         &lt; Back to Catalog
       </button>
@@ -37,8 +38,26 @@ const CartSummary = props => {
           <p>No items in cart!</p>
         )}
       </div>
-      <div>Total Price: ${total * 0.01}</div>
-      <button onClick={total > 0 ? () => props.setView('checkout', {}) : null}>Checkout</button>
+
+      <br />
+
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div>Total Price: ${total * 0.01}</div>
+        <button
+          onClick={total > 0 ? () => props.setView('checkout', {}) : null}
+          style={{
+            backgroundColor: 'red',
+            color: 'white',
+            border: 'none',
+            height: '50px',
+            width: '200px',
+            borderRadius: '20px',
+            fontSize: '24px'
+          }}
+        >
+          Checkout
+        </button>
+      </div>
     </div>
   );
 };

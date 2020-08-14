@@ -35,7 +35,7 @@ export default class ProductDetails extends React.Component {
             alignItems: 'center'
           }}
         >
-          <LoadingComponent />
+          <LoadingComponent className="center"/>
         </div>
       );
     }
@@ -56,7 +56,7 @@ const Product = props => {
     product || {};
 
   return (
-    <div style={{ border: '1px solid black', padding: '30px' }}>
+    <div style={{ border: '1px solid black', padding: '30px' }} className="fade-in">
       <button
         onClick={() => props.setView('catalog', {})}
         style={{ border: 'none', backgroundColor: 'white' }}
@@ -66,7 +66,7 @@ const Product = props => {
       <br />
       <div>
         <div className="d-flex" style={{}}>
-          <img src={image} alt={name} style={{ width: '40%' }} />
+          <img src={image} alt={name} style={{ width: '40%', maxHeight: '490px', objectFit: 'contain' }} />
           <div style={{ marginLeft: '20px', width: '50%' }}>
             <h3>{name}</h3>
             <p>${(price / 100).toFixed(2)}</p>
