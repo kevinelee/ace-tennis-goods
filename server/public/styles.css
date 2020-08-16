@@ -1,6 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+.view-details-button {
+  width: 100%;
+  padding: 12px 0px 12px 0px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
 .product-image:hover {
   transform: scale(1.05);
   transition: 1000ms;
+}
+
+.product-card {
+  box-shadow: -1px 6px 8px -6px rgba(0,0,0,0.75);
+
+
 }
 
 .center {
