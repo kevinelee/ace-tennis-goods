@@ -52,7 +52,7 @@ export default class ProductDetails extends React.Component {
 
 const Product = props => {
   const { product } = props || {};
-  const { image, name, price, shortDescription, longDescription } =
+  const { image, name, price, shortDescription } =
     product || {};
 
   return (
@@ -79,10 +79,10 @@ const Product = props => {
             </button>
           </div>
         </div>
-        <br />
+        {/* <br />
         <div>
           <p>{longDescription}</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -2,7 +2,6 @@ import React from 'react';
 
 export default class ProductListItem extends React.Component {
   render() {
-
     const { product, viewProduct } = this.props || {};
     const { name, price, image } = product || {};
 
@@ -29,12 +28,14 @@ export default class ProductListItem extends React.Component {
             <p className="card-text">${(price / 100).toFixed(2)}</p>
             <p className="card-text">
               {/* {this.props.description} */}
-              <button className="view-details-button" onClick={() => viewProduct(product)}>
+              <button
+                className="view-details-button"
+                onClick={() => viewProduct(product)}
+              >
                 View Product
               </button>
             </p>
           </div>
-
         </div>
       </div>
     );
