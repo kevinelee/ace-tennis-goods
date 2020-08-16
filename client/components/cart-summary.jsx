@@ -26,6 +26,7 @@ const CartSummary = props => {
           props.setView('catalog');
         }}
         style={{ border: 'none', backgroundColor: 'white', padding: '5px' }}
+        className="btn btn-3"
       >
         &lt; Back to Catalog
       </button>

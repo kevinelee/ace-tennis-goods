@@ -60,6 +60,7 @@ const Product = props => {
       <button
         onClick={() => props.setView('catalog', {})}
         style={{ border: 'none', backgroundColor: 'white' }}
+        className="btn btn-3"
       >
         &lt; Back to Catalog
       </button>
