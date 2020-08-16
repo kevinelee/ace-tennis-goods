@@ -1,5 +1,6 @@
 import React from 'react';
 // import {} from '../../server/public/images/ace'
+// import img from '../../server/public/images/ace-tennis-goods-banner.png'
 
 export default class Header extends React.Component {
   render() {
@@ -14,16 +15,18 @@ export default class Header extends React.Component {
             width: '95%'
           }}
         >
-          <h1
-            onClick={() => this.props.setView('catalog', {})}
-            style={{ backgroundColor: 'red', color: 'white', fontStyle: 'italic' }}
+          {/* <h1
+                        style={{ backgroundColor: 'red', color: 'white', fontStyle: 'italic' }}
           >
             ACE TENNIS GOODS
-          </h1>
-          {/* <img src="../../server/public/images/ace-tennis-goods-banner.png" alt="banner"/> */}
-          <h4
-            onClick={() => this.props.setView('cart', {})}
-          >
+          </h1> */}
+          <img
+            onClick={() => this.props.setView('catalog', {})}
+            src="/images/ace-tennis-goods-banner.png"
+            alt="banner"
+            style={{ padding: '10px' }}
+          />
+          <h4 onClick={() => this.props.setView('cart', {})}>
             Cart: {this.props.cardItemCount} Item(s)
           </h4>
         </div>
