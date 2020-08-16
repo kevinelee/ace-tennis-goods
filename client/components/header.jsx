@@ -1,6 +1,5 @@
 import React from 'react';
-// import {} from '../../server/public/images/ace'
-// import img from '../../server/public/images/ace-tennis-goods-banner.png'
+// import CheckoutModal from '../assets/checkout-modal';
 
 export default class Header extends React.Component {
   render() {
@@ -15,18 +14,17 @@ export default class Header extends React.Component {
             width: '95%'
           }}
         >
-          {/* <h1
-                        style={{ backgroundColor: 'red', color: 'white', fontStyle: 'italic' }}
-          >
-            ACE TENNIS GOODS
-          </h1> */}
           <img
-            onClick={() => this.props.setView('catalog', {})}
+            onClick={
+              this.props.view === 'checkout'
+                ? null // change this to <CheckoutModal/> ?
+                : () => this.props.setView('catalog', {})
+            }
             src="/images/ace-tennis-goods-banner.png"
             alt="banner"
             style={{ padding: '10px' }}
           />
-          <h4 onClick={() => this.props.setView('cart', {})}>
+          <h4 onClick={this.props.view === 'checkout' ? null : () => this.props.setView('cart', {})}>
             Cart: {this.props.cardItemCount} Item(s)
           </h4>
         </div>
