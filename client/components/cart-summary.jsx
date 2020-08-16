@@ -35,14 +35,16 @@ const CartSummary = props => {
             return <CartSummaryItem key={item.cartItemId} cartItem={item} />;
           })
         ) : (
-          <p>No items in cart!</p>
+          <div className="no-cart-item">
+            <h1>No items in cart!</h1>
+          </div>
         )}
       </div>
 
       <br />
 
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div>Total Price: ${total * 0.01}</div>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+        <div style={{ margin: '15px', fontSize: '32px', fontWeight: '500' }}>Total Price: ${total * 0.01}</div>
         <button
           onClick={total > 0 ? () => props.setView('checkout', {}) : null}
           style={{

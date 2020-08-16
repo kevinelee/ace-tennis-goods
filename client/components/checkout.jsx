@@ -41,7 +41,7 @@ export default class CheckoutForm extends React.Component {
     return (
       <div>
         <h1>Checkout</h1>
-        <form onSubmit={this.handleSubmit} style={{ display: 'flex', flexDirection: 'column', width: '80%' }}>
+        <form className="checkout-form" onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name:
             <input type="text" value={name} onChange={this.handleNameChange} required/>
           </label>

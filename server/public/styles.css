@@ -20,6 +20,23 @@
 
 }
 
+.no-cart-item {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+.checkout-form {
+  
+}
+
+.checkout-form > * {
+  display: flex; 
+  flex-direction: column;
+  width: 80% 
+}
+
 .center {
  margin-left: 500px;
 }
@@ -29,6 +46,7 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+
 
 @keyframes fadeInAnimation {
   0% {
