@@ -45,20 +45,20 @@ const CartSummary = props => {
       <br />
 
       <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-        <div style={{ margin: '15px', fontSize: '32px', fontWeight: '500' }}>Total Price: ${total * 0.01}</div>
+        <div style={{ margin: '16px', fontSize: '24px', fontWeight: '500' }}>Total Price: ${total * 0.01}</div>
         <button
           onClick={total > 0 ? () => props.setView('checkout', {}) : null}
           style={{
-            backgroundColor: 'red',
+            backgroundColor: '#141518',
             color: 'white',
             border: 'none',
             height: '50px',
-            width: '200px',
-            borderRadius: '20px',
-            fontSize: '24px'
+            width: '250px',
+            borderRadius: '5px',
+            fontSize: '16px'
           }}
         >
-          Checkout
+          Proceed to Checkout
         </button>
       </div>
     </div>
