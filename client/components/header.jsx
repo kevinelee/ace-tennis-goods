@@ -23,7 +23,7 @@ export default class Header extends React.Component {
             }
             src="/images/ace-tennis-goods-banner.png"
             alt="banner"
-            style={{ padding: '10px', cursor: 'pointer' }}
+            style={{ padding: '10px', cursor: 'pointer', maxWidth: '50%' }}
           />
           <h4 style={{ cursor: 'pointer' }} onClick={() => this.props.setView('cart', {})}>
             Cart: {this.props.cardItemCount} Item(s)

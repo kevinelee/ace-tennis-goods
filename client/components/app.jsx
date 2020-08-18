@@ -80,7 +80,7 @@ export default class App extends React.Component {
     const { name } = view || {};
 
     return (
-      <div style={{ minWidth: '620px' }}>
+      <div>
         <Header cardItemCount={cart && cart.length} setView={this.setView} view={name}/>
 
         <br/>

@@ -16,8 +16,6 @@
 
 .product-card {
   box-shadow: -1px 6px 8px -6px rgba(0,0,0,0.75);
-
-
 }
 
 .no-cart-item {
@@ -40,10 +38,6 @@
   align-items: center;
   border-radius: 5px;
   border: 1px solid
-}
-
-.center {
- margin-left: 1000px;
 }
 
 .fade-in {
@@ -76,16 +70,16 @@
 
 }
 
-.btn > p {
+/* .btn > p {
   text-align: center;
   text-transform: uppercase;
   color: black;
   font-weight: bold;
   font-size: 16px;
-  /* position: relative; */
+  position: relative; 
   z-index: 1;
   transition: all 1s ease;
-}
+} 
 
 .btn:before{
   content: "";
