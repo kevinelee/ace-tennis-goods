@@ -12,7 +12,7 @@ export default class App extends React.Component {
       message: null,
       isLoading: true,
       view: {
-        name: 'catalog',
+        name: 'checkout',
         params: {}
       },
       cart: []
@@ -80,8 +80,8 @@ export default class App extends React.Component {
     const { name } = view || {};
 
     return (
-      <div>
-        <Header cardItemCount={cart && cart.length} setView={this.setView} />
+      <div style={{ minWidth: '620px' }}>
+        <Header cardItemCount={cart && cart.length} setView={this.setView} view={name}/>
 
         <br/>
 

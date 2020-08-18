@@ -26,6 +26,7 @@ const CartSummary = props => {
           props.setView('catalog');
         }}
         style={{ border: 'none', backgroundColor: 'white', padding: '5px' }}
+        className="btn btn-3"
       >
         &lt; Back to Catalog
       </button>
@@ -35,27 +36,30 @@ const CartSummary = props => {
             return <CartSummaryItem key={item.cartItemId} cartItem={item} />;
           })
         ) : (
-          <p>No items in cart!</p>
+          <div className="no-cart-item">
+            <h1>No items in cart!</h1>
+          </div>
         )}
       </div>
 
       <br />
 
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div>Total Price: ${total * 0.01}</div>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+        <div style={{ margin: '16px', fontSize: '24px', fontWeight: '500' }}>Total Price: ${total * 0.01}</div>
         <button
           onClick={total > 0 ? () => props.setView('checkout', {}) : null}
           style={{
-            backgroundColor: 'red',
+            backgroundColor: '#141518',
             color: 'white',
             border: 'none',
             height: '50px',
-            width: '200px',
-            borderRadius: '20px',
-            fontSize: '24px'
+            width: '250px',
+            borderRadius: '5px',
+            fontSize: '16px',
+            marginBottom: '24px'
           }}
         >
-          Checkout
+          Proceed to Checkout
         </button>
       </div>
     </div>

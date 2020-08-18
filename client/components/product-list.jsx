@@ -18,8 +18,6 @@ export default class ProductList extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState(() => {
-          // eslint-disable-next-line no-console
-          console.log(data);
           return { products: data };
         });
       })
@@ -34,11 +32,7 @@ export default class ProductList extends React.Component {
     const { products } = this.state;
     const productsList = products.map(product => {
       return (
-        <div
-          key={product.productId}
-          className="col-md-4 fade-in"
-
-        >
+        <div key={product.productId} className="col-md-4 fade-in">
           <ProductListItem
             key={product.productId}
             product={product}
