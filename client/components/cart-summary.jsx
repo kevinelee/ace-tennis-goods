@@ -55,7 +55,8 @@ const CartSummary = props => {
             height: '50px',
             width: '250px',
             borderRadius: '5px',
-            fontSize: '16px'
+            fontSize: '16px',
+            marginBottom: '16px'
           }}
         >
           Proceed to Checkout

@@ -24,7 +24,7 @@ export default class Header extends React.Component {
             alt="banner"
             style={{ padding: '10px', cursor: 'pointer' }}
           />
-          <h4 style={{ cursor: 'pointer' }} onClick={this.props.view === 'checkout' ? null : () => this.props.setView('cart', {})}>
+          <h4 style={{ cursor: 'pointer' }} onClick={() => this.props.setView('cart', {})}>
             Cart: {this.props.cardItemCount} Item(s)
           </h4>
         </div>
