@@ -71,7 +71,7 @@ export default class CheckoutForm extends React.Component {
               required
             />
           </label>
-          <input type="submit" />
+          <input className="checkout-submit-button" type="submit" />
 
         </form>
       </div>

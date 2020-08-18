@@ -11,7 +11,8 @@ export default class Header extends React.Component {
             margin: '0 auto',
             justifyContent: 'space-between',
             alignItems: 'center',
-            width: '95%'
+            width: '95%',
+            flexWrap: 'wrap'
           }}
         >
           <img
