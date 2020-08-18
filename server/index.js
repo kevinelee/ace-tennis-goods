@@ -110,8 +110,6 @@ app.post('/api/cart', (req, res, next) => {
       })
       .then(data => {
         req.session.cartId = data.cartId;
-        // eslint-disable-next-line no-console
-        console.log(req.session);
         const params = [data.cartId, Number(req.body.productId), data.price];
 
         const sql3 = `insert into "cartItems" ("cartId", "productId", "price")
@@ -123,9 +121,6 @@ app.post('/api/cart', (req, res, next) => {
         });
       })
       .then(result => {
-        // eslint-disable-next-line no-console
-        console.log(result);
-
         const params = [result.cartItemId];
 
         const sql4 = `select "c"."cartItemId",
@@ -150,12 +145,8 @@ app.post('/api/cart', (req, res, next) => {
 app.post('/api/orders', (req, res, next) => {
   const { name, creditCard, shippingAddress } = req.body;
 
-  // eslint-disable-next-line
-  console.log("reqbody", req.body);
-
   if (req.session.cartId) {
     if (req.body.name && req.body.creditCard && req.body.shippingAddress) {
-
       const sql = `insert into "orders" ("name", "creditCard", "shippingAddress", "cartId")
                    values ($1, $2, $3, $4)
                    returning *`;

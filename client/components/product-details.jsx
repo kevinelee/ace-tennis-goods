@@ -13,8 +13,6 @@ export default class ProductDetails extends React.Component {
         return res.json();
       })
       .then(data => {
-        // eslint-disable-next-line no-console
-        console.log(data);
         this.setState(() => {
           return { product: data };
         });
@@ -35,7 +33,7 @@ export default class ProductDetails extends React.Component {
             alignItems: 'center'
           }}
         >
-          <LoadingComponent className="center"/>
+          <LoadingComponent className="center" />
         </div>
       );
     }
@@ -52,11 +50,13 @@ export default class ProductDetails extends React.Component {
 
 const Product = props => {
   const { product } = props || {};
-  const { image, name, price, shortDescription } =
-    product || {};
+  const { image, name, price, shortDescription } = product || {};
 
   return (
-    <div style={{ border: '1px solid black', padding: '30px' }} className="fade-in">
+    <div
+      style={{ border: '1px solid black', padding: '30px' }}
+      className="fade-in"
+    >
       <button
         onClick={() => props.setView('catalog', {})}
         style={{ border: 'none', backgroundColor: 'white' }}
@@ -67,14 +67,24 @@ const Product = props => {
       <br />
       <div>
         <div className="d-flex" style={{}}>
-          <img src={image} alt={name} style={{ width: '40%', maxHeight: '490px', objectFit: 'contain' }} />
+          <img
+            src={image}
+            alt={name}
+            style={{ width: '40%', maxHeight: '490px', objectFit: 'contain' }}
+          />
           <div style={{ marginLeft: '20px', width: '50%' }}>
             <h3>{name}</h3>
             <p>${(price / 100).toFixed(2)}</p>
             <p>{shortDescription}</p>
             <button
               onClick={() => props.addToCart(product)}
-              style={{ width: '100%', height: '50px', backgroundColor: 'red', color: 'white', fontWeight: '500' }}
+              style={{
+                width: '100%',
+                height: '50px',
+                backgroundColor: 'red',
+                color: 'white',
+                fontWeight: '500'
+              }}
             >
               ADD TO CART
             </button>
