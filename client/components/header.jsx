@@ -18,7 +18,7 @@ export default class Header extends React.Component {
           <img
             onClick={
               this.props.view === 'checkout'
-                ? null // change this to <CheckoutModal/> ?
+                ? null // change this to <CheckoutModal/>
                 : () => this.props.setView('catalog', {})
             }
             src="/images/ace-tennis-goods-banner.png"
