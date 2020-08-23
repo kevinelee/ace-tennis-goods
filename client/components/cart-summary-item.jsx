@@ -6,9 +6,9 @@ const CartSummaryItem = props => {
   return (
     <div>
       <div>
-        <div className="d-flex" style={{ border: '1px solid black', padding: '30px', minWidth: '200px' }}>
-          <img src={image} alt={name} style={{ width: '40%', maxHeight: '490px', objectFit: 'contain' }} />
-          <div style={{ marginLeft: '20px', width: '50%' }}>
+        <div className="d-flex product-detail-item" style={{ border: '1px solid black', padding: '30px', minWidth: '200px', borderRadius: '5px' }}>
+          <img className="product-detail-item-image" src={image} alt={name}/>
+          <div className="product-detail-item-div">
             <h3>{name}</h3>
             <p>${(price / 100).toFixed(2)}</p>
             <p>{shortDescription}</p>

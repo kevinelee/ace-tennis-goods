@@ -2,9 +2,6 @@ import React from 'react';
 import CartSummaryItem from './cart-summary-item';
 
 const CartSummary = props => {
-  // props turns into an array of cart items
-
-  // props.cart = this.state.cart
 
   const { cart } = props;
 
@@ -44,8 +41,17 @@ const CartSummary = props => {
 
       <br />
 
-      <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-        <div style={{ margin: '16px', fontSize: '24px', fontWeight: '500' }}>Total Price: ${total * 0.01}</div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-end',
+          alignItems: 'center'
+        }}
+      >
+        <div style={{ margin: '16px', fontSize: '24px', fontWeight: '500' }}>
+          Total Price: ${(total / 100).toFixed(2)}
+        </div>
+
         <button
           onClick={total > 0 ? () => props.setView('checkout', {}) : null}
           style={{
