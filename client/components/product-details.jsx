@@ -66,14 +66,9 @@ const Product = props => {
       </button>
       <br />
       <div>
-        <div className="d-flex product-detail-item" style={{}}>
-          <img
-            src={image}
-            alt={name}
-            style={{ width: '40%', maxHeight: '490px', objectFit: 'contain' }}
-            className="product-detail-item-child"
-          />
-          <div style={{ width: '50%' }} className="product-detail-item-child">
+        <div className="d-flex product-detail-item">
+          <img src={image} alt={name} className="product-detail-item-image" />
+          <div className="product-detail-item-div">
             <h3>{name}</h3>
             <p>${(price / 100).toFixed(2)}</p>
             <p>{shortDescription}</p>
