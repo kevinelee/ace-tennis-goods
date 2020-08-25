@@ -2,6 +2,7 @@
 A full stack Node.js and React shopping cart app
 
 Technologies Used
+-----
 React.js
 * Webpack 4
 * Bootstrap 4
@@ -16,6 +17,7 @@ Live Demo
 Try the application live at https://ace-tennis.kevinelee.com
 
 Features
+-----
 * User can view catalog items.
 * User can view specific product for more details.
 * User can view add product to cart.
