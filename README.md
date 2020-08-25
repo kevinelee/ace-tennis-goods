@@ -3,14 +3,13 @@ A full stack Node.js and React shopping cart app
 
 Technologies Used
 React.js
-Webpack 4
-Bootstrap 4
-Node.js
-MongoDB
-HTML5
-CSS3
-AWS EC2
-Live Demo
+#Webpack 4
+##Bootstrap 4
+###Node.js
+####PostgreSQL
+#####HTML5
+######CSS3
+#######AWS EC2
 Try the application live at https://ace-tennis.kevinelee.com
 
 Features
