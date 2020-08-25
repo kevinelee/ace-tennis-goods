@@ -14,7 +14,7 @@ React.js
 
 Live Demo
 -----
-Try the application live at https://ace-tennis.kevinelee.com
+Try the application live at https://ace-tennis.kevinelee.com.
 
 Features
 -----
