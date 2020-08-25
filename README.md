@@ -10,11 +10,14 @@ React.js
 * HTML5
 * CSS3
 * AWS EC2
+
+Live Demo
+-----
 Try the application live at https://ace-tennis.kevinelee.com
 
 Features
-User can view catalog items.
-User can view specific product for more details.
-User can view add product to cart.
-User can view cart.
-User can check out cart.
+* User can view catalog items.
+* User can view specific product for more details.
+* User can view add product to cart.
+* User can view cart.
+* User can check out cart.
