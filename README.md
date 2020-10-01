@@ -3,7 +3,7 @@ A full stack Node.js and React shopping cart app
 
 Technologies Used
 -----
-React.js
+* React.js
 * Webpack 4
 * Bootstrap 4
 * Node.js
