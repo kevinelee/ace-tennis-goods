@@ -1,4 +1,4 @@
-# wicked-sales-js
+# ace-tennis-goods
 A full stack Node.js and React shopping cart app
 
 Technologies Used
