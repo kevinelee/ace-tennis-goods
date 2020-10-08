@@ -23,3 +23,7 @@ Features
 * User can view add product to cart.
 * User can view cart.
 * User can check out cart.
+
+Run
+-----
+* npm run dev
