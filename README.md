@@ -14,7 +14,7 @@ Technologies Used
 
 Live Demo
 -----
-Try the application live at http://ace-tennis.kevinelee.com.
+Try the application live at https://ace-tennis.kevinelee.com.
 
 Features
 -----
