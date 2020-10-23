@@ -17,15 +17,19 @@ export default class Header extends React.Component {
         >
           <img
             onClick={
-              this.props.view === 'checkout'
-                ? null // change this to <CheckoutModal/>
-                : () => this.props.setView('catalog', {})
+              // this.props.view === 'checkout'
+              //   ? null // change this to <CheckoutModal/> :
+              () => this.props.setView('catalog', {})
             }
             src="/images/ace-tennis-goods-banner.png"
             alt="banner"
             style={{ padding: '10px', cursor: 'pointer', maxWidth: '50%' }}
           />
-          <h4 className="cart-button" style={{ cursor: 'pointer' }} onClick={() => this.props.setView('cart', {})}>
+          <h4
+            className="cart-button"
+            style={{ cursor: 'pointer' }}
+            onClick={() => this.props.setView('cart', {})}
+          >
             Cart: {this.props.cardItemCount} Item(s)
           </h4>
         </div>
