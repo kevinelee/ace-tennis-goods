@@ -10,6 +10,10 @@
   border-radius: 5px;
 }
 
+.view-details-button:hover{
+  background-color: lightgray;
+}
+
 .product-image:hover {
   transform: scale(1.05);
   transition: 1000ms;
@@ -85,10 +89,10 @@
   color: black;
   font-weight: bold;
   font-size: 16px;
-  position: relative; 
+  position: relative;
   z-index: 1;
   transition: all 1s ease;
-} 
+}
 
 .btn:before{
   content: "";
