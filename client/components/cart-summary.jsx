@@ -54,16 +54,7 @@ const CartSummary = props => {
 
         <button
           onClick={total > 0 ? () => props.setView('checkout', {}) : null}
-          style={{
-            backgroundColor: '#141518',
-            color: 'white',
-            border: 'none',
-            height: '50px',
-            width: '250px',
-            borderRadius: '5px',
-            fontSize: '16px',
-            marginBottom: '24px'
-          }}
+          className="proceed-to-checkout-button"
         >
           Proceed to Checkout
         </button>
