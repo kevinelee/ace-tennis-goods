@@ -74,13 +74,7 @@ const Product = props => {
             <p>{shortDescription}</p>
             <button
               onClick={() => props.addToCart(product)}
-              style={{
-                width: '100%',
-                height: '50px',
-                backgroundColor: 'red',
-                color: 'white',
-                fontWeight: '500'
-              }}
+              className="add-to-cart-button"
             >
               ADD TO CART
             </button>
